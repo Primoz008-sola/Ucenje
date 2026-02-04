@@ -35,3 +35,14 @@ print(postaja["moduli"][1]["eksperimenti"][1])
 print(postaja["moduli"][0]["posadka"])
 #c) Izpiši število ur rezerve kisika (48)
 print(postaja["sistemi"]["zivljenjska_podpora"]["kisik"]["rezerva_ur"])
+
+trgovina = {
+    "promocija": {
+        "akcija": 20,
+        "popust": 10
+    }
+}
+
+print(list(trgovina["promocija"].keys())[1])
+print(trgovina["promocija"])
+print(list(trgovina["promocija"])[1])
