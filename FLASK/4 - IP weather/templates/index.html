@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> 
+    <title>Vreme IP</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+   <a href="https://crispy-palm-tree-7vpjqpjg7x5vhwwvj-5000.app.github.dev/obiskovalci" class="admin-btn" target="_blank">Admin</a>
+    <div class="container">
+        <h1>VREME, HITRO in VARNO.</h1>
+    <h2>Vreme glede na tvojo lokacijo.</h2>
+    <hr>
+    <p>Tvoj ip: {{ip}}</p>
+    <p>Tvoja lokacija: {{lokacija}}</p>
+    <p>Napoved: <br>
+    <table border="1">
+        <tr>
+            <th>Datum</th>
+            <th>Ura</th>
+            <th>Temperatura (°C)</th>
+        </tr>
+        {% for podatek in napoved %}
+        <tr>
+            <td> {{ podatek[0] }} </td>
+            <td> {{podatek[1]}} </td>
+            <td>{{podatek[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+    <hr>
+    <br>
+    <p>&copy; 2026 Primož K. Vse pravice pridržane.</p>
+    <br>
+    </div>
+
+</body>
+
+</html>
