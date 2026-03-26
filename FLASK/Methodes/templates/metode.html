@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+Dobrodošel {{ user }}!
+<div id="output"></div>
+</body>
+
+</html>
+<script>
+    var out = document.getElementById("output")
+
+    var IntervalID = setInterval(postAjax,20) //funkcija bo poklicna na 5 sekund
+    function postAjax() {
+
+        $.ajax({
+            url: "/",
+            method: "POST",
+            data: {
+                zipcode: 97201
+            },
+            success: function (result) {
+               console.log(result);
+               out.innerHTML = result.status
+
+                if (result.run){
+                clearInterval(IntervalID); // ustavi ponavljanje
+                console.log("Interval ustavljen");
+                }
+            }
+            
+        });
+    }
+</script>
